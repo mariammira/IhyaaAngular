@@ -1,0 +1,73 @@
+<!-- <div style="height:175px">
+<img style="position:fixed;right:15px;top:15px "  src="./../../assets/images/logo.png.png">
+
+<ul class="navbar-nav ms-auto mb-2 mb-lg-0 " style="position: fixed;
+right: 350px;
+top: 65px;">
+    <li class="nav-item" *ngFor="let tab of tabs">
+      <a class="nav-link active" aria-current="page" href="#">{{tab.title}}</a>
+    </li>
+   
+  </ul>
+</div>
+
+ -->
+ <!-- <mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <button mat-icon-button>
+       <mat-icon (click)="sidenav.toggle()">menu</mat-icon> 
+    </button>
+    <h1>SimpleCRM</h1>
+    <span class="menu-spacer"></span>
+    <div>
+      <a mat-button [routerLink]="'/accounts'"> Accounts </a>
+      <a mat-button [routerLink]="'/create-account'"> Create Account </a>
+      <a mat-button [routerLink]="'/contacts'"> Contacts </a>
+      <a mat-button [routerLink]="'/create-contact'"> Create Contact </a>
+      <a mat-button [routerLink]="'/activities'"> Activities </a>
+      <a mat-button [routerLink]="'/create-activity'"> Create Activity </a>
+
+    </div>
+  </mat-toolbar-row>
+
+  <mat-toolbar-row>
+      <span style="font-size: 12px;">SimpleCRM helps you easily manage your contacts</span>
+    </mat-toolbar-row>
+</mat-toolbar> -->
+ 
+ <mat-toolbar  style=" min-height: 150px;">
+
+     
+
+  <span class="fill-remaining-space"></span>
+ 
+  <div fxLayout="row " fxHide fxShow.gt-sm>
+      
+      <div class="dropdown" *ngFor="let tab of tabs">
+         <!-- <button   routerLinkActive="active" routerLink="/item1" mat-raised-button>{{tab.title}}</button> -->
+         <a style="margin:20px;"  [attr.href]="tab.link ? tab.link : null" mat-raised-button>{{tab.title}}</a>
+         <!-- [attr.href]="!item.subMenu ? item.url : null" -->
+         <div class="dropdown-content" *ngIf="tab.subtitles">
+          <div class="shape"></div>
+          <a  [href]="sub.link" *ngFor="let sub of tab.subtitles">{{sub.title}}</a>
+          <!-- <a href="#">Link 2</a>
+          <a href="#">Link 3</a> -->
+        </div>
+    </div>
+      
+
+         <!-- <button  routerLinkActive="active" routerLink="/item2" mat-raised-button>Item</button>
+         <button  routerLinkActive="active" routerLink="/item3" mat-raised-button>Item</button> -->
+  </div>
+  
+    <img   src="./../../assets/images/logo.png.png">
+     
+  <button mat-button [mat-menu-trigger-for]="menu" fxShow fxHide.gt-sm>
+   <mat-icon>menu</mat-icon>
+  </button>
+</mat-toolbar>
+<mat-menu x-position="before" #menu>
+  <button  routerLinkActive="active"  routerLink="/item1" mat-menu-item>Item</button>
+  <button  routerLinkActive="active"  routerLink="/item2" mat-menu-item>Item</button>
+  <button  routerLinkActive="active"  routerLink="/item3" mat-menu-item>Item</button>
+</mat-menu>

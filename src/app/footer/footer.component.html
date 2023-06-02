@@ -1,0 +1,11 @@
+<footer >
+    <div className="text-center">
+      
+          <a *ngFor="let socialMediaItem of socialMedia" >
+            <!-- href={socialMediaItem.link} key={socialMediaItem.type}> -->
+            <i icon={socialMediaItem.icon} size="2x" ></i>
+          </a>
+       
+    </div>
+    <p className="text-center">{{copyright}}</p>
+  </footer>
